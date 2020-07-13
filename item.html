@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script>window.CI360 = { notInitOnLoad: true }</script>
+        <script src="./js/js-cloudimage-360-view.min.js"></script>
+        <script src="./js/vue.js"></script>
+        <link rel="stylesheet" href="./bootstrap-4.5.0-dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div style="position: fixed;top:0;left:0;width: 100%;background: #eee;z-index: 2;">
+            <button onClick="window.CI360.init()">Show</button>
+            <button onClick="window.CI360.destroy()">Hide</button>
+          </div>
+          <div
+            class="cloudimage-360"
+            data-folder="@@@"
+            data-filename="IMG_{index}.jpg"
+            data-amount="30"
+          >
+          </div>
+          <script>
+              var params = (new URL(document.location)).searchParams;
+              var itemid = params.get('itemid');
+              var js360 = document.getElementsByClassName('cloudimage-360')[0];
+              js360.setAttribute("data-folder", "./images/" + itemid + "/");
+
+              window.CI360.init();
+          </script>
+    </body>
+</html>
